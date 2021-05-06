@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">{{movies}}</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            message:'你好',
+            movies:['星际穿越','血战钢锯岭','太阳之泪','神厨小福贵']
+        }
+    })
+</script>
+</body>
+</html>

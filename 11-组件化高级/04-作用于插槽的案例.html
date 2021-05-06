@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 作用域插槽:准备
+    作用域插槽是slot—个比较难理解的点，而且官方文档说的又有点不清晰。这里，我们用一句话对其做一个总结，然后我们在后续的案例中来体会∶
+      父组件替换插槽的标签，但是内容由子组件来提供。
+    我们先提一个需求:
+      子组件中包括一组数据，比如: pLanguages: ['JavaScript', 'Python', 'Swift', 'Go','C++']
+      口需要在多个界面进行展示∶
+        √某些界面是以水平方向——展示的，
+        √某些界面是以列表形式展示的，
+        √某些界面直接展示一个数组
+      内容在子组件，希望父组件告诉我们如何展示，怎么办呢?
+    √利用slot作用域插槽就可以了 -->
+
+
+  <div id="app">
+    <cpn></cpn>
+
+    <cpn>
+      <!-- 目的是获取子组件的pLanguages -->
+      <template slot-scope="slot">
+        <span v-for = "item in slot.data">{{item}}----</span>
+      </template>
+    </cpn>
+
+    <cpn>
+      <!-- 目的是获取子组件的pLanguages -->
+      <template slot-scope="slot">
+        <!-- <span v-for = "item in slot.data">{{item}}</span> -->
+        <span>{{slot.data.join('----')}}</span>
+      </template>
+    </cpn>
+
+  </div>
+
+  <template id="cpn">
+    <div>
+      <slot :data = "pLanguages"> 
+        <ul>
+          <li v-for="item in pLanguages">{{item}}</li>
+        </ul>
+      </slot>
+    </div>
+  </template>
+
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data:{
+          message:'你好',
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+          data() {
+            return {
+              pLanguages: ['JavaScript','Php','C++','Python','Go','C#']
+            }
+          },
+          // created() {
+          //   this.pLanguages.join(' - ')
+          // }
+        }
+      }
+    })
+  </script>
+</body>
+</html>

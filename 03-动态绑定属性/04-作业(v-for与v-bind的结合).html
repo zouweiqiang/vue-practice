@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .m{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <!-- <li v-for="m in movies">{{m}}</li> -->
+        <li v-for="(m,index) in movies">{{btClinck()}}<button>蓝色</button><button>红色</button></li>
+    </ul>
+    <h2></h2>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+        message:'你好',
+        movies:['火影忍者','海尔兄弟','铁甲小宝','四驱兄弟','虹猫蓝兔'],
+
+    },
+    methods:{
+      btClinck:function () {
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

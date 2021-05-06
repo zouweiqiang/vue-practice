@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <button>按钮4</button>
+    <button>按钮5</button>
+    <script>
+    // 1.ES5没有使用闭包
+    // var btns =  document.getElementsByName('button');
+    // for (var i = 0;i < btns.length;i++){
+    //     btns[i].addEventListener('click',function () {
+    //       console.log('第' + i + '个按钮被点击了');
+    // })
+    // }
+    // 1.ES5使用闭包
+    // var btns =  document.getElementsByName('button');
+    // for (var i = 0;i < btns.length;i++){
+    //     (function(num) {
+    //         btns[i].addEventListener('click',function (num) {
+    //         console.log('第' + i + '个按钮被点击了');
+    //     })
+    //     })(i)
+    // }
+    // 3.ES6中let的使用
+    const btns = document.getElementsByTagName('button')
+    for (let i = 0; i < btns.length; i++){
+        btns[i].addEventListener('click',function(){
+            console.log('第'+ i + '个按钮被点击了');
+        })
+    }
+    </script>
+</body>
+</html>

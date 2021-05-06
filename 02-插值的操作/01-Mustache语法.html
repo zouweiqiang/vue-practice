@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <H2>{{message}}</H2>
+  <H2>{{message}},邹伟</H2>
+  <!--mastachu语法中，不仅可以直接写变量，还可以写简单的表达式-->
+  <H2>{{firstName + lastName}}</H2>
+  <H2>{{firstName + ' '+lastName}}</H2>
+  <H2>{{firstName}} {{lastName}}</H2>
+  <h2>{{counter *2}}</h2>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'你好',
+      firstName:'kobord',
+      lastName:'boredds',
+        counter: 100
+    }
+  })
+</script>
+
+</body>
+</html>
